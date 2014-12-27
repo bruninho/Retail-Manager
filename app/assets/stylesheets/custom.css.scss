@@ -1,0 +1,148 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+  font-family: "VAG Rounded";
+  src: url('../fonts/vagrlsb_.ttf');
+}
+
+body {
+padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+
+}
+
+html,
+body {
+ 	background-color: #596b70;
+ 	font-family: 'Open Sans', sans-serif;
+}
+
+.main-container {
+	width: 100%;
+	background-color: #fff;
+	text-align: center;
+}
+
+.img-main {
+	height: 250px;
+	width: 250px;
+}
+
+#newsfeed {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-left: 1px solid #E8E8E8;
+}
+
+#sales {
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+.submitSales {
+	text-align: center;
+}
+
+
+footer {
+	text-align: center;
+	background-color: #008898;
+	color: #fff; 
+}
+
+.logo_sml {
+	padding-right: 3px;
+}
+
+
+/* navbar */
+.navbar-custom {
+    background-color: #008898;
+    border-color: #f0d800;
+}
+/* title */
+.navbar-custom .navbar-brand {
+    color: #fff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #fff;
+}
+/* link */
+.navbar-custom .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #333;
+}
+.navbar-custom .navbar-nav > .active > a, 
+.navbar-custom .navbar-nav > .active > a:hover, 
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #008898;
+}
+.navbar-custom .navbar-nav > .open > a, 
+.navbar-custom .navbar-nav > .open > a:hover, 
+.navbar-custom .navbar-nav > .open > a:focus {
+    color: #f0d800;
+    background-color: #008898;
+}
+/* caret */
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+    border-top-color: #f0d800;
+    border-bottom-color: #f0d800;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-custom .navbar-nav > .open > a .caret, 
+.navbar-custom .navbar-nav > .open > a:hover .caret, 
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-custom .navbar-toggle {
+    border-color: #f0d800;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-nav > li > a {padding-top:15px !important; padding-bottom:15px !important;}
+.navbar {min-height:40px !important}
+.navbar-brand {
+	padding-top: 15px !important;
+
+}
+
+
+@media (max-width: 767px) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #000;
+    }
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+width: 100%; // Add this
+}
+
+.reports {
+	padding-top: 10px;
+}
+
+.btn-danger, .btn-primary, .btn-default { margin: 1px;}

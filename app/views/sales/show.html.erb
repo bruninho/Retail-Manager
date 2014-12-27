@@ -1,0 +1,51 @@
+<!-- create rows of 3 -->
+	<div class="main-container container">
+		<div class="row">
+
+			<div class="col-md-3 col-sm-4 " >
+				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+				<h2>Upload your Sales information</h2>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<p id="notice"><%= notice %></p>
+				<h1>Sale Report</h1>
+
+				<table class="table table-striped text-left">
+		            <tbody>
+		                <tr>
+		                	<td><strong>Total:</strong>
+		                    <td>€<%= @sale.total %></td>
+		                </tr>
+		                <tr>
+		                	<td><strong>Profit:</strong></td>
+		                    <td><%= @sale.profit %>%</td>
+		                </tr>
+		                <tr>
+		                	<td><strong>Credit Card:</strong></td>
+		                    <td>€<%= @sale.credit %></td>
+		                </tr>
+		                <tr>
+		                	<td><strong>Cash</strong></td>
+		                    <td>€<%= @sale.cash %></td>		                    
+		                </tr>
+		            </tbody>
+		        </table>
+
+				<%= link_to 'Edit', edit_sale_path(@sale), class: "btn btn-primary"%> 
+				<%= link_to 'Back', sales_path, class: "btn btn-default" %>
+			</div>
+			<!-- NEWS FEED -->
+			<div id="newsfeed" class="col-md-3 visible-lg-block visible-md-block">
+				<h3>Messages</h3>
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<hr class="featurette-divider">
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<hr class="featurette-divider">
+			</div>
+		</div>
+	</div> <!-- close container -->
+
+
