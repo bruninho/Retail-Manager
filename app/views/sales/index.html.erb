@@ -30,7 +30,7 @@
                     <td>€<%= sale.cash %></td>
                     <td><%= link_to 'Show', sale, class: "btn btn-default" %></td>
                     <td><%= link_to 'Edit', edit_sale_path(sale), class: "btn btn-primary" %></td>
-                    <td><%= link_to 'Destroy', sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to 'Delete', sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -38,7 +38,7 @@
 
         <br>
 
-        <%= link_to 'New Sale', new_sale_path, class: "btn btn-success" %>
+        <%= link_to 'New Report', new_sale_path, class: "btn btn-success" %>
 
       </div>
       <!-- NEWS FEED -->
