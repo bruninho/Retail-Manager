@@ -9,17 +9,21 @@
 			</div>
 			<div class="col-md-6 col-sm-12 col-xs-12">
 				<p id="notice"><%= notice %></p>
-				<h1>Sale Report</h1>
+				<h1>Sales Report</h1>
 
 				<table class="table table-striped text-left">
 		            <tbody>
+		            	<tr>
+		            		<td><strong>Date</strong></td>
+		            		<td><%= @sale.created_at.strftime("%d %b. %Y") %></td>
+		            	</tr>
 		                <tr>
-		                	<td><strong>Total:</strong>
+		                	<td><strong>Total:</strong></td>
 		                    <td>€<%= @sale.total %></td>
 		                </tr>
 		                <tr>
 		                	<td><strong>Profit:</strong></td>
-		                    <td><%= @sale.profit %>%</td>
+		                    <td><%= @sale.profit %></td>
 		                </tr>
 		                <tr>
 		                	<td><strong>Credit Card:</strong></td>
