@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227213647) do
+ActiveRecord::Schema.define(version: 20150108233008) do
 
   create_table "sales", force: true do |t|
     t.float    "total"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20141227213647) do
     t.float    "cash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "difference"
   end
 
 end
