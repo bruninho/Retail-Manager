@@ -122,6 +122,10 @@ footer {
 
 }
 
+.navbar-header a:hover {
+    background-color: transparent;
+}
+
 
 @media (max-width: 767px) {
     .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
