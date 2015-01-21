@@ -12,32 +12,33 @@
         <p id="notice"><%= notice %></p>
 
         <h1>Sales Reports</h1>
-        <table class="table table-striped text-left">
-            <thead>
-                <tr>
-                	<th>Date</th>
-                    <th>Total</th>
-                    <th>Profit</th>
-                    <th>Credit Card Sales</th>
-                    <th>Cash Received</th>
-                </tr>
-            </thead>
-            <tbody>
-              <% @sales.each do |sale| %>
-                <tr>
-                	<td><%= sale.created_at.strftime("%d %b. %Y") %></td>
-                    <td>€<%= sale.total %></td>
-                    <td>€<%= sale.profit %></td>
-                    <td>€<%= sale.credit %></td>
-                    <td>€<%= sale.cash %></td>
-                    <td><%= link_to 'Show', sale, class: "btn btn-default" %></td>
-                    <td><%= link_to 'Edit', edit_sale_path(sale), class: "btn btn-primary" %></td>
-                    <td><%= link_to 'Delete', sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-        </table>
-
+        <div class="table-responsive">
+            <table class="table table-striped text-left">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Profit</th>
+                        <th>Credit Card Sales</th>
+                        <th>Cash Received</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @sales.each do |sale| %>
+                    <tr>
+                        <td><%= sale.created_at.strftime("%d %b. %Y") %></td>
+                        <td>€<%= sale.total %></td>
+                        <td>€<%= sale.profit %></td>
+                        <td>€<%= sale.credit %></td>
+                        <td>€<%= sale.cash %></td>
+                        <td><%= link_to 'Show', sale, class: "btn btn-default" %></td>
+                        <td><%= link_to 'Edit', edit_sale_path(sale), class: "btn btn-primary" %></td>
+                        <td><%= link_to 'Delete', sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
         <br>
 
         <%= link_to 'New Report', new_sale_path, class: "btn btn-success" %>
