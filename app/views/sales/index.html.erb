@@ -8,7 +8,7 @@
         <h2>Upload your Sales information</h2>
         <p>Update your daily sales information to the Financial Analyst.</p>
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
         <p id="notice"><%= notice %></p>
 
         <h1>Sales Reports</h1>
@@ -32,8 +32,6 @@
                         <td>€<%= sale.credit %></td>
                         <td>€<%= sale.cash %></td>
                         <td><%= link_to 'Show', sale, class: "btn btn-default" %></td>
-                        <td><%= link_to 'Edit', edit_sale_path(sale), class: "btn btn-primary" %></td>
-                        <td><%= link_to 'Delete', sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                   <% end %>
                 </tbody>
