@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   resources :sales
   root                  'static_pages#home'      
   get   'offer'   =>    'static_pages#offer'
   get   'report'  =>    'static_pages#report'
-  get   'signup'  =>    'users#new'
+  get     'signup'  =>   'users#new'
+  get     'login'   =>   'sessions#new'
+  post    'login'   =>   'sessions#create'
+  delete  'logout'  =>   'sessions#destroy'
   resources :users
   
 

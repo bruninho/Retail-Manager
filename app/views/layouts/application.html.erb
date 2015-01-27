@@ -48,6 +48,15 @@
                             <li>
                                 <%= link_to "Register User", signup_path %>
                             </li>
+                            <% if logged_in? %>
+                                <li class="divider"></li>
+                                <li>
+                                  <%= link_to "Log out", logout_path, method: "delete" %>
+                                </li>
+                            <% else %>
+                                <li class="divider"></li>
+                                <li><%= link_to "Log in", login_path %></li>
+                            <% end %>
                         </ul>
                     </li>
                     <li class="dropdown">
