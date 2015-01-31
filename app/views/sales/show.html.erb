@@ -41,7 +41,9 @@
 		        </table>
 
 				<%= link_to 'Edit', edit_sale_path(@sale), class: "btn btn-primary"%> 
-				<%= link_to 'Delete', @sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% if current_user.admin? %>
+                <%= link_to 'Delete', @sale, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
 				<%= link_to 'Back', sales_path, class: "btn btn-default" %>
 
 			</div>
