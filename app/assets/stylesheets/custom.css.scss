@@ -8,10 +8,6 @@
     box-sizing:         border-box;
 }
 
-@font-face {
-  font-family: "VAG Rounded";
-  src: url('../fonts/vagrlsb_.ttf');
-}
 
 body {
 padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
@@ -21,7 +17,7 @@ padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .n
 html,
 body {
  	background-color: #596b70;
- 	font-family: 'Open Sans', sans-serif;
+ 	font-family: 'Roboto', sans-serif;
 }
 
 html {
