@@ -1,10 +1,11 @@
 class SalesController < ApplicationController
     before_action :set_sale, only: [:show, :edit, :update, :destroy]
+    before_action :logged_in_user
 
   # GET /sales
   # GET /sales.json
-  def index
-    @sales = Sale.all
+  def index    
+    @sales = current_user.sales
   end
 
   # GET /sales/1
@@ -24,8 +25,7 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new(sale_params)
-    
+    @sale = current_user.sales.build(sale_params)
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Report was successfully created.' }
@@ -67,6 +67,7 @@ class SalesController < ApplicationController
       @sale = Sale.find(params[:id])
     end
 
+    private
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
       params.require(:sale).permit(:total, :profit, :credit, :cash, :difference)
