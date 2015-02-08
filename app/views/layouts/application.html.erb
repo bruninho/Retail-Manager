@@ -24,6 +24,7 @@
                 </button>
                 <%= link_to image_tag("logo_sml.png", :alt => "Retail Manager"), home_path , class: "navbar-brand" %>
             </div>
+            <% if logged_in? %>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -47,35 +48,6 @@
                                 </li>
                             </ul>
                         </li>
-                    
-                    <li>
-                    	<a href="#">Reports</a>
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Sale Reports</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Payroll Reports</a>
-                            </li>
-                            <li>
-                                <%= link_to "Register User", signup_path %>
-                            </li>
-                            <% if logged_in? %>
-                                <li class="divider"></li>
-                                <li>
-                                    <%= link_to "Settings", edit_user_path(current_user) %>
-                                </li>
-                                <li>
-                                  <%= link_to "Log out", logout_path, method: "delete" %>
-                                </li> 
-                            <% else %>
-                                <li class="divider"></li>
-                                <li><%= link_to "Log in", login_path %></li>
-                            <% end %>
-                        </ul>
-                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -93,8 +65,33 @@
                             </li>
                         </ul>
                     </li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="full-width.html">Sale Reports</a>
+                            </li>
+                            <li>
+                                <a href="sidebar.html">Payroll Reports</a>
+                            </li>
+                            <% if current_user.admin? %>
+                            <li>
+                                <%= link_to "Register User", signup_path %>
+                            </li>
+                            <% end %>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= link_to "Settings", edit_user_path(current_user) %>
+                                </li>
+                                <li>
+                                  <%= link_to "Log out", logout_path, method: "delete" %>
+                                </li> 
+                        </ul>
+                    </li>
                 </ul>
+                <% end %>
             </div>
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
