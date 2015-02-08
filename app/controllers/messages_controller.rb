@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
     before_action :set_message, only: [:show, :edit, :update, :destroy, :read]
     
     def index
-        @messages = Message.all #currently returning messages to all users
+        @messages = Message.where(:receiver => current_user.id).paginate(page: params[:page], :per_page => 5)
     end
     
-    def outbox    
-        @messages = current_user.messages
+    def outbox
+        @messages = current_user.messages.paginate(page: params[:page], :per_page => 5)
     end
     
     def new 
@@ -18,7 +18,8 @@ class MessagesController < ApplicationController
         @message = current_user.messages.build(message_params)
         respond_to do |format|
           if @message.save
-            format.html { redirect_to @message, notice: 'Message was successfully created.' }
+            flash[:success] = 'Message was successfully sent.'
+            format.html { redirect_to @message } #, notice: 'Message was successfully created.' }
             format.json { render :show, status: :created, location: @message } #change :new to :show once show view has been created!
           else
             format.html { render :new }
@@ -36,7 +37,8 @@ class MessagesController < ApplicationController
     def destroy
     @message.destroy
         respond_to do |format|
-          format.html { redirect_to outbox_path, notice: 'Message was successfully destroyed.' }
+          flash[:success] = 'Message was successfully deleted.'
+          format.html { redirect_to inbox_path } #, notice: 'Message was successfully destroyed.' }
           format.json { head :no_content }
         end
     end
