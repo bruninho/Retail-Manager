@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
     before_action :logged_in_user
-    before_action :set_message, only: [:show, :edit, :update, :destroy]
+    before_action :set_message, only: [:show, :edit, :update, :destroy, :read]
     
     def index
         @messages = Message.all #currently returning messages to all users
@@ -25,6 +25,9 @@ class MessagesController < ApplicationController
             format.json { render json: @message.errors, status: :unprocessable_entity }
           end
         end
+    end
+    
+    def read
     end
     
     def show 

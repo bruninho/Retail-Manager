@@ -3,12 +3,12 @@
 
 			<div class="col-md-3 col-sm-4 " >
 				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
-				<h2>Send a new message</h2>
+				<h2>Message - Inbox</h2>
 				<p>Send a message to a specific store. Messaging system allows you to improve communication between stores. Please ensure you read all messages in your inbox.</p>
 			</div>
 			<div class="col-md-6 col-sm-8 col-xs-12">
 				<p id="notice"><%= notice %></p>
-				<h1>Message Sent</h1>
+				<h1>Message Received</h1>
 
 				<table class="table table-striped text-left">
 		            <tbody>
@@ -31,9 +31,9 @@
 		            </tbody>
 		        </table> 
 				<% if current_user.admin? %>
-                <%= link_to 'Delete', @message, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Delete', @message, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
-				<%= link_to 'Back', outbox_path, class: "btn btn-default" %>
+				<%= link_to 'Back', inbox_path, class: "btn btn-default" %>
 			</div>
     </div>
 </div>

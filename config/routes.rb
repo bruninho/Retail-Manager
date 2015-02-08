@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     delete    'logout'        =>  'sessions#destroy'
     get       'sendmessage'   =>  'messages#new'
     get       'outbox'        =>  'messages#outbox'
+    get       'read'          =>  'messages#read'
+    get       'inbox'         =>  'messages#index'
     resources :users
     resources :messages
     resources :account_activations, only: [:edit] 
