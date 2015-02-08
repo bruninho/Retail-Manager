@@ -1,0 +1,33 @@
+<div class="main-container container">
+    <div class="row">
+        <div class="col-md-3 col-sm-4" >
+            <a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+            <h2>Send a new message</h2>
+            <p>Send a message to a specific store. Messaging system allows you to improve communication between stores. Please ensure you read all messages in your inbox.</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+            <h1>Inbox</h1>
+            <div class="table-responsive">
+                <table class="table table-striped text-left">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Sender</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% @messages.each do |message| %>
+                        <tr>
+                            <td><%= message.created_at.strftime("%d %b. %Y") %></td>
+                            <td><%= message.user_id %></td>
+                            <td><%= message.subject %></td>
+                            <td><%= link_to 'Show', message, class: "btn btn-default" %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="main-container container">
+    <div class="row">
+
+			<div class="col-md-3 col-sm-4 " >
+				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+				<h2>Send a new message</h2>
+				<p>Send a message to a specific store. Messaging system allows you to improve communication between stores. Please ensure you read all messages in your inbox.</p>
+			</div>
+			<div class="col-md-6 col-sm-8 col-xs-12">
+				<p id="notice"><%= notice %></p>
+				<h1>Outbox</h1>
+
+				<table class="table table-striped text-left">
+		            <tbody>
+		            	<tr>
+		            		<td><strong>Date</strong></td>
+		            		<td><%= @message.created_at.strftime("%d %b. %Y") %></td>
+		            	</tr>
+		                <tr>
+		                	<td><strong>Destination:</strong></td>
+		                    <td><%= @message.receiver %></td>
+		                </tr>
+		                <tr>
+		                	<td><strong>Subject:</strong></td>
+		                    <td><%= @message.subject %></td>
+		                </tr>
+		                <tr>
+		                	<td><strong>Content</strong></td>
+		                    <td><%= @message.content %></td>
+		                </tr>
+		            </tbody>
+		        </table> 
+				<% if current_user.admin? %>
+                <%= link_to 'Delete', @message, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+				<%= link_to 'Back', outbox_path, class: "btn btn-default" %>
+			</div>
+    </div>
+</div>

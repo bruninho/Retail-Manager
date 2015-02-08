@@ -1,0 +1,15 @@
+<div class="main-container container">
+    <div class="row">
+
+			<div class="col-md-3 col-sm-4 " >
+				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+				<h2>Send a new message</h2>
+				<p>Send a message to a specific store. Messaging system allows you to improve communication between stores. Please ensure you read all messages in your inbox.</p>
+			</div>
+			<div class="col-md-6 col-sm-8 col-xs-12">
+				<h1>Send new message</h1>
+				<%= render 'messageform' %>
+				<%= link_to 'Back', outbox_path, class: "btn btn-default" %>
+			</div>
+    </div>
+</div>

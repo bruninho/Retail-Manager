@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
     has_many :sales
+    has_many :messages
+    
 	attr_accessor :remember_token, :activation_token
 	before_save { self.email.downcase! }
     before_create :create_activation_digest

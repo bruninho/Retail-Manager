@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
-  get 'account_activations/edit'
+    get 'account_activations/edit'
 
-  resources :sales
-  root                  'sessions#new'
-  get   'home'      =>  'static_pages#home'
-  get   'offer'   =>    'static_pages#offer'
-  get   'report'  =>    'static_pages#report'
-  get     'signup'  =>   'users#new'
-  get     'login'   =>   'sessions#new'
-  post    'login'   =>   'sessions#create'
-  delete  'logout'  =>   'sessions#destroy'
-  resources :users
-  resources :account_activations, only: [:edit] 
+    resources :sales
+    root                          'sessions#new'
+    get       'home'          =>  'static_pages#home'
+    get       'offer'         =>  'static_pages#offer'
+    get       'report'        =>  'static_pages#report'
+    get       'signup'        =>  'users#new'
+    get       'login'         =>  'sessions#new'
+    post      'login'         =>  'sessions#create'
+    delete    'logout'        =>  'sessions#destroy'
+    get       'sendmessage'   =>  'messages#new'
+    get       'outbox'        =>  'messages#outbox'
+    resources :users
+    resources :messages
+    resources :account_activations, only: [:edit] 
+    
   
 
   # The priority is based upon order of creation: first created -> highest priority.
