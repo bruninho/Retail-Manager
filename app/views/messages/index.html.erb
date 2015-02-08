@@ -22,7 +22,7 @@
                             <td><%= message.created_at.strftime("%d %b. %Y") %></td>
                             <td><%= message.user_id %></td>
                             <td><%= message.subject %></td>
-                            <td><%= link_to 'Show' , read_path(:id => message.id), class: "btn btn-default"  %></td>
+                            <td><%= link_to 'Read' , read_path(:id => message.id), class: "btn btn-default"  %></td>
                         </tr>
                       <% end %>
                     </tbody>
