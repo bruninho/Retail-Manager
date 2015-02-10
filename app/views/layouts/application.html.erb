@@ -68,12 +68,6 @@
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Sale Reports</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Payroll Reports</a>
-                            </li>
                             <% if current_user.admin? %>
                             <li>
                                 <%= link_to "Register User", signup_path %>
