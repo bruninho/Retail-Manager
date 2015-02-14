@@ -8,7 +8,7 @@
 			</div>
 			<div class="col-md-8 col-sm-8 col-xs-12">
 				<!--<p id="notice"><%= notice %></p>-->
-				<h1>Message Sent</h1>
+				<h1>Messages Sent</h1>
 
 				<table class="table table-striped text-left">
 		            <tbody>
@@ -18,7 +18,7 @@
 		            	</tr>
 		                <tr>
 		                	<td><strong>To:</strong></td>
-		                    <td><%= @message.receiver %></td>
+		                    <td><%= @user.find(@message.receiver).name %></td>
 		                </tr>
 		                <tr>
 		                	<td><strong>Subject:</strong></td>
@@ -33,7 +33,7 @@
 				<% if current_user.admin? %>
                 <%= link_to 'Delete', @message, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
-				<%= link_to 'Back', inbox_path, class: "btn btn-default" %>
+				<%= link_to 'Back', outbox_path, class: "btn btn-default" %>
 			</div>
     </div>
 </div>

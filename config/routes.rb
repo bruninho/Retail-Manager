@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :employees
+
     get 'account_activations/edit'
 
     resources :sales
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
     get       'outbox'        =>  'messages#outbox'
     get       'read'          =>  'messages#read'
     get       'inbox'         =>  'messages#index'
+    get       'employees'     =>  'employees#new'
     resources :users
     resources :messages
     resources :account_activations, only: [:edit] 

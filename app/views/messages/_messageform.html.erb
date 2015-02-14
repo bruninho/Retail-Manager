@@ -8,7 +8,8 @@
     <tbody>
       <tr><div class="field">
         <td><%= f.label "To:" %><br></td>
-        <td><%= f.text_field :receiver %><tr>
+          <td><%= collection_select :message, :receiver, User.all, :id, :name ,{prompt: "Select a destination"},  { class: "form-control"}  %></td>
+          <!--<td><%= f.text_field :receiver %></td><tr>-->
       </div></tr>
 
       <tr><div class="field">

@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update] 
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:destroy ]
+  before_action :logged_in_user
     
   def new
-    @user = User.new
+     if current_user.admin == true 
+        @user = User.new
+     else
+        
+        flash[:danger] = "Registration section stricted to administrators."
+         redirect_to home_path
+     end 
   end
 
   def show
@@ -13,7 +20,7 @@ class UsersController < ApplicationController
   def create
     #strong params method being used to initialize new user
     @user = User.new(user_params) 
-    if @user.save
+      if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"
       redirect_to root_url

@@ -4,10 +4,12 @@ class MessagesController < ApplicationController
     
     def index
         @messages = Message.where(:receiver => current_user.id).paginate(page: params[:page], :per_page => 5)
+        @user = User.all
     end
     
     def outbox
         @messages = current_user.messages.paginate(page: params[:page], :per_page => 5)
+        @user = User.all
     end
     
     def new 
@@ -29,9 +31,11 @@ class MessagesController < ApplicationController
     end
     
     def read
+        @user = User.all
     end
     
     def show 
+        @user = User.all
     end
     
     def destroy

@@ -15,6 +15,8 @@ gem 'rails-html-sanitizer',		'1.0.1'
 gem 'sdoc',						'0.4.0', group: :doc
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'
+gem "twitter-bootstrap-rails"
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do 
 	gem 'sqlite3',				'1.3.9'

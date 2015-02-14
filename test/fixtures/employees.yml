@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  store: MyString
+  dob: 2015-02-13
+  basic_rop: 1.5
+  sunday_bh_rop: 1.5
+  email: MyString
+  date_joined: 2015-02-13
+
+two:
+  fname: MyString
+  lname: MyString
+  store: MyString
+  dob: 2015-02-13
+  basic_rop: 1.5
+  sunday_bh_rop: 1.5
+  email: MyString
+  date_joined: 2015-02-13

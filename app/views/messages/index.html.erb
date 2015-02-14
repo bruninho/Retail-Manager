@@ -20,7 +20,7 @@
                       <% @messages.each do |message| %>
                         <tr>
                             <td><%= message.created_at.strftime("%d %b. %Y - %H:%M") %></td>
-                            <td><%= message.user_id %></td>
+                            <td><%= @user.find(message.user_id).name %></td>
                             <td><%= message.subject %></td>
                             <td><%= link_to 'Read' , read_path(:id => message.id), class: "btn btn-default"  %></td>
                             
@@ -30,6 +30,7 @@
                 </table>
                 <p><%= will_paginate @messages, renderer: BootstrapPagination::Rails %></p>
               </div>
+            <%= link_to "Send Message", sendmessage_path, class: "btn btn-success" %>
         </div>
     </div>
 </div>

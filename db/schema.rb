@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208163847) do
+ActiveRecord::Schema.define(version: 20150213203952) do
+
+  create_table "employees", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "store"
+    t.date     "dob"
+    t.float    "basic_rop"
+    t.float    "sunday_bh_rop"
+    t.string   "email"
+    t.date     "date_joined"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "messages", force: true do |t|
     t.text     "subject"

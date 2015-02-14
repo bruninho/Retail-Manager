@@ -8,7 +8,7 @@
 			</div>
 			<div class="col-md-8 col-sm-8 col-xs-12">
 				<p id="notice"><%= notice %></p>
-				<h1>Message Received</h1>
+				<h1>Messages Received</h1>
 
 				<table class="table table-striped text-left">
 		            <tbody>
@@ -18,7 +18,7 @@
 		            	</tr>
 		                <tr>
 		                	<td><strong>From:</strong></td>
-		                    <td><%= @message.user_id %></td>
+		                    <td><%= @user.find(@message.user_id).name %></td>
 		                </tr>
 		                <tr>
 		                	<td><strong>Subject:</strong></td>
