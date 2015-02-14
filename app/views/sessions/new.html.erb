@@ -1,6 +1,8 @@
-<h1>Log in</h1>
 <div class="row">
   	<div class="col-md-6 col-md-offset-3">
+        <div class="logo text-center">
+            <%= image_tag "centralogo.jpg", alt: "Centra Logo", class: "img-circle" %>
+        </div>
 		<%= form_for(:session, url: login_path) do |f| %> 
 			<%= f.label :email %>
 			<%= f.text_field :email %>
