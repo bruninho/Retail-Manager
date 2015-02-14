@@ -3,12 +3,12 @@ class MessagesController < ApplicationController
     before_action :set_message, only: [:show, :edit, :update, :destroy, :read]
     
     def index
-        @messages = Message.where(:receiver => current_user.id).paginate(page: params[:page], :per_page => 5)
+        @messages = Message.where(:receiver => current_user.id).reorder("id DESC").paginate(page: params[:page], :per_page => 5)
         @user = User.all
     end
     
     def outbox
-        @messages = current_user.messages.paginate(page: params[:page], :per_page => 5)
+        @messages = current_user.messages.reorder("id DESC").paginate(page: params[:page], :per_page => 5)
         @user = User.all
     end
     
