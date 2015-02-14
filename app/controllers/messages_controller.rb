@@ -21,8 +21,8 @@ class MessagesController < ApplicationController
         respond_to do |format|
           if @message.save
             flash[:success] = 'Message was successfully sent.'
-            format.html { redirect_to @message } #, notice: 'Message was successfully created.' }
-            format.json { render :show, status: :created, location: @message } #change :new to :show once show view has been created!
+            format.html { redirect_to @message } 
+            format.json { render :show, status: :created, location: @message }
           else
             format.html { render :new }
             format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -32,6 +32,10 @@ class MessagesController < ApplicationController
     
     def read
         @user = User.all
+        message = Message.find(params[:id])
+        if message.read == false
+            message.update_attribute(:read,    true)
+        end
     end
     
     def show 
@@ -42,10 +46,11 @@ class MessagesController < ApplicationController
     @message.destroy
         respond_to do |format|
           flash[:success] = 'Message was successfully deleted.'
-          format.html { redirect_to inbox_path } #, notice: 'Message was successfully destroyed.' }
+          format.html { redirect_to inbox_path } 
           format.json { head :no_content }
         end
     end
+    
     
     private
     # Never trust parameters from the scary internet, only allow the white list through.

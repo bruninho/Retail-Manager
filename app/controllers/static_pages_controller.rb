@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
   end
     
     def set_feed 
-        @messages = Message.where(:receiver => current_user.id).paginate(page: params[:page], :per_page => 5)
+        @messages = Message.where(:receiver => current_user.id).paginate(page: params[:page], :per_page => 4)
         @user = User.all
     end
 end
