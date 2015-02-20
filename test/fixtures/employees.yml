@@ -1,21 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  pps_no: MyString
   fname: MyString
   lname: MyString
-  store: MyString
-  dob: 2015-02-13
+  dob: 2015-02-20
+  address: MyText
+  ph_number: MyString
   basic_rop: 1.5
   sunday_bh_rop: 1.5
   email: MyString
-  date_joined: 2015-02-13
+  date_joined: 2015-02-20
+  user_id: 
 
 two:
+  pps_no: MyString
   fname: MyString
   lname: MyString
-  store: MyString
-  dob: 2015-02-13
+  dob: 2015-02-20
+  address: MyText
+  ph_number: MyString
   basic_rop: 1.5
   sunday_bh_rop: 1.5
   email: MyString
-  date_joined: 2015-02-13
+  date_joined: 2015-02-20
+  user_id: 

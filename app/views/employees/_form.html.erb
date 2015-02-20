@@ -1,80 +1,76 @@
-<%= form_for @employee, :html => { :class => "form-horizontal employee" } do |f| %>
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-    <% if @employee.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @employee.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
+  <table class="table table-striped text-left">
+    <tbody>
+        
+      <tr><div class="field">
+        <td><%= f.label "First Name" %><br></td>
+        <td><%= f.text_field :fname, :class => 'form-control' %><tr>
+      </div></tr>
 
-  <div class="control-group">
-    <%= f.label 'First Name', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :fname, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:fname]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Last Name', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :lname, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:lname]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Store', :class => 'control-label' %> <!-- change this to drop down list of stores -->
-    <div class="controls">
-      <%= f.text_field :store, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:store]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Date of Birth', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :dob, 'data-provide' => 'datepicker', :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:dob]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Basic Pay', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :basic_rop, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:basic_rop]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Sunday/BH Pay', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :sunday_bh_rop, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:sunday_bh_rop]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Email', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:email]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Starting Date', :class => 'control-label' %>
-    <div class="controls">
-            <%= f.text_field :date_joined, 'data-provide' => 'datepicker', :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:date_joined]) %>
-  </div>
+      <tr><div class="field">
+        <td><%= f.label "Last Name" %><br></td>
+        <td><%= f.text_field :lname, :class => 'form-control' %></td>
+      </div></tr>
+        
+      <tr><div class="field">
+        <td><%= f.label "Date of Birth" %><br></td>
+          <td><%= f.text_field :dob, 'data-provide' => 'datepicker', :class => 'form-control' %></td>
+      </div></tr>
+        
+        
+        
+      <tr><div class="field">
+        <td><%= f.label "PPS Number", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :pps_no, :class => 'form-control' %><tr>
+      </div></tr>
 
+      <tr><div class="field">
+        <td><%= f.label "Address", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :address, :class => 'form-control' %></td>
+      </div></tr>
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            employees_path, :class => 'btn btn-default' %>
+      <tr><div class="field">
+        <td><%= f.label "Phone Number", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :ph_number, :class => 'form-control' %></td>
+      </div></tr>
+        
+      <tr><div class="field">
+        <td><%= f.label "Basic Rate of pay", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :basic_rop, :class => 'form-control' %><tr>
+      </div></tr>
+          
+     <tr><div class="field">
+        <td><%= f.label "Sunday/BH Rate of pay", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :sunday_bh_rop,:class => 'form-control' %><tr>
+      </div></tr>
+         
 
+     <tr><div class="field">
+        <td><%= f.label "Email", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :email,:class => 'form-control' %><tr>
+      </div></tr>
+     
+      <tr><div class="field">
+        <td><%= f.label "Starting Date", :class => 'control-label' %><br></td>
+        <td><%= f.text_field :date_joined, 'data-provide' => 'datepicker', :class => 'form-control' %><tr>
+      </div></tr>
+         
+         
+         
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-success" %>
+  </div>
 <% end %>

@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214090412) do
+ActiveRecord::Schema.define(version: 20150220201534) do
 
   create_table "employees", force: true do |t|
+    t.string   "pps_no"
     t.string   "fname"
     t.string   "lname"
-    t.string   "store"
     t.date     "dob"
+    t.text     "address"
+    t.string   "ph_number"
     t.float    "basic_rop"
     t.float    "sunday_bh_rop"
     t.string   "email"
     t.date     "date_joined"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  add_index "employees", ["user_id"], name: "index_employees_on_user_id"
 
   create_table "messages", force: true do |t|
     t.text     "subject"
