@@ -45,7 +45,7 @@ class SalesController < ApplicationController
     respond_to do |format|
       if @sale.update(sale_params)
         flash[:success] = 'Report was successfully updated.'
-        format.html { redirect_to @sale } #, notice:  'Report was successfully updated.' }
+        format.html { redirect_to @sale } 
         format.json { render :show, status: :ok, location: @sale }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class SalesController < ApplicationController
     @sale.destroy
     respond_to do |format|
       flash[:success] = 'Report was successfully deleted.'     
-      format.html { redirect_to sales_url } #, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to sales_url } 
       format.json { head :no_content }
     end
   end

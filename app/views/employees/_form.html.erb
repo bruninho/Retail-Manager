@@ -1,8 +1,9 @@
 <%= form_for(@employee) do |f| %>
   <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
+    <div id="error_explanation" >
+        <div class="alert alert-danger">
+            <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+        </div>
       <ul>
       <% @employee.errors.full_messages.each do |message| %>
         <li><%= message %></li>
