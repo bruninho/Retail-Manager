@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     has_many :sales
     has_many :messages
     has_many :employees
+    has_many :timesheets
     
 	attr_accessor :remember_token, :activation_token
 	before_save { self.email.downcase! }

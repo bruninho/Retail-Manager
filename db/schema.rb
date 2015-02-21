@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220201534) do
+ActiveRecord::Schema.define(version: 20150221191338) do
+
+  create_table "emp_timesheet", id: false, force: true do |t|
+    t.integer "timesheet_id"
+    t.integer "employee_id"
+    t.float   "sunday_hours"
+    t.float   "basic_hours"
+  end
 
   create_table "employees", force: true do |t|
     t.string   "pps_no"
@@ -55,6 +62,15 @@ ActiveRecord::Schema.define(version: 20150220201534) do
   end
 
   add_index "sales", ["user_id"], name: "index_sales_on_user_id"
+
+  create_table "timesheets", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.date     "date_assigned"
+  end
+
+  add_index "timesheets", ["user_id"], name: "index_timesheets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
