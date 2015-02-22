@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
+    #model relationships
     has_many :sales
     has_many :messages
     has_many :employees
     has_many :timesheets
     
+    #data validation
 	attr_accessor :remember_token, :activation_token
 	before_save { self.email.downcase! }
     before_create :create_activation_digest
