@@ -38,8 +38,8 @@
             </table>
           </div>
         <br>
-        <%= link_to "Excel", sales_path(format: "xls") %>
         <%= link_to 'New Report', new_sale_path, class: "btn btn-success" %>
+        <p><%= link_to '<i class="glyphicon glyphicon-save"></i> Download to Excel'.html_safe, sales_path(format: "xls"), class: "btn btn-xs btn-default" %></p>
 
       </div>
     </div>
