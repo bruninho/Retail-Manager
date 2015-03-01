@@ -6,11 +6,16 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index    
     @sales = current_user.sales
+    respond_to do |format|
+      format.html
+      format.csv { send_data @sales.to_csv } #translate records to .csv
+      format.xls
+    end
   end
 
   # GET /sales/1
   # GET /sales/1.json
-  def show
+  def show 
   end
 
   # GET /sales/new

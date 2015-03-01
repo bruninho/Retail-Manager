@@ -1,0 +1,21 @@
+
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Total Sales</th>
+    <th>Profit on Sales</th>
+    <th>Credit Card Sales</th>
+    <th>Cash Sales</th>
+    <th>Cash Balance S/O</th>
+  </tr>
+  <% @sales.each do |sale| %>
+  <tr>
+    <td><%= sale.created_at %></td>
+    <td><%= sale.total %></td>
+    <td><%= sale.profit %></td>
+    <td><%= sale.credit %></td>
+    <td><%= sale.cash %></td>
+    <td><%= sale.difference %></td>
+  </tr>
+  <% end %>
+</table>

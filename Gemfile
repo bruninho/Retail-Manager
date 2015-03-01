@@ -18,6 +18,7 @@ gem 'will_paginate'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'newrelic_rpm'
+gem 'cocoon'
 
 group :development, :test do 
 	gem 'sqlite3',				'1.3.9'

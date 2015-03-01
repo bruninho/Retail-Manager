@@ -19,15 +19,15 @@ class EmployeesController < ApplicationController
     def create 
         @employee = current_user.employees.build(employee_params)   
         respond_to do |format|
-      if @employee.save
-        flash[:success] = "Employee was successfully created."
-        format.html { redirect_to @employee } 
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
+          if @employee.save
+            flash[:success] = "Employee was successfully created."
+            format.html { redirect_to @employee } 
+            format.json { render :show, status: :created, location: @employee }
+          else
+            format.html { render :new }
+            format.json { render json: @employee.errors, status: :unprocessable_entity }
+          end
+        end
     end
     
     def update 

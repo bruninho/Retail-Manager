@@ -1,0 +1,21 @@
+<%= form_for @timesheet, html: {class: "form-horizontal"} do |f| %>
+  <fieldset id="timesheet-meta">
+    <ol>
+      <li class="control-group">
+        <%= f.label :upload_date, "Upload Date", class: "control-label" %>
+        <div class="controls"><%= f.text_field :upload_date %></div>
+      </li>
+    </ol> 
+  </fieldset> 
+  
+  <fieldset id="timesheet-employees"> 
+    <ol> 
+      <%= f.fields_for :timesheet_payments do |timesheet_payment| %> 
+        <%= render 'timesheet_payment_fields', f: timesheet_payment %> 
+      <% end %> 
+    </ol> 
+    <%= link_to_add_association 'add timesheet', f, :timesheet_payments, 'data-association-insertion-node' => "#timesheet-employees ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|timesheet_payment| timesheet_payment.build_employee; timesheet_payment } %> 
+  </fieldset> 
+  
+  <%= f.submit %> 
+<% end %>
