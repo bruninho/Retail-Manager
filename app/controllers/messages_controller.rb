@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
         @user = User.all
     end
     
-    def new 
+    def new
         @message = Message.new
     end
     

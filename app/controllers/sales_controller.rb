@@ -4,8 +4,16 @@ class SalesController < ApplicationController
 
   # GET /sales
   # GET /sales.json
-  def index    
-    @sales = current_user.sales
+  def index
+    @user = User.all
+    #display all sales reports to admin user
+    if current_user.admin?
+      @sales = Sale.all
+    #display sales only for current user
+    else     
+      @sales = current_user.sales
+    end 
+    #download sales to xls
     respond_to do |format|
       format.html
       format.csv { send_data @sales.to_csv } #translate records to .csv

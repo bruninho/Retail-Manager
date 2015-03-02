@@ -1,6 +1,7 @@
 
 <table border="1">
   <tr>
+    <th>Store</th>
     <th>Date</th>
     <th>Total Sales</th>
     <th>Profit on Sales</th>
@@ -10,6 +11,7 @@
   </tr>
   <% @sales.each do |sale| %>
   <tr>
+    <td><%= @user.find(sale.user_id).name %></td>
     <td><%= sale.created_at %></td>
     <td><%= sale.total %></td>
     <td><%= sale.profit %></td>

@@ -16,6 +16,9 @@
             <table class="table table-striped text-left">
                 <thead>
                     <tr>
+                        <% if current_user.admin? %>
+                          <th>Store</th>
+                        <% end %>
                         <th>Date</th>
                         <th>Total</th>
                         <th>Profit</th>
@@ -26,6 +29,9 @@
                 <tbody>
                   <% @sales.each do |sale| %>
                     <tr>
+                        <% if current_user.admin? %>
+                          <td><%= @user.find(sale.user_id).name %></td>
+                        <% end %>
                         <td><%= sale.created_at.strftime("%d %b. %Y") %></td>
                         <td>€<%= sale.total %></td>
                         <td>€<%= sale.profit %></td>
