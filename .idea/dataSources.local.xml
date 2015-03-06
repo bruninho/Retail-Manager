@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails retail_manager: development" uuid="db42b4a4-7987-43e7-86fd-93674bfa8e3f" />
+    <data-source name="Rails retail_manager: test" uuid="056f73d7-e137-4931-9533-2bfdb8f2ccc1">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

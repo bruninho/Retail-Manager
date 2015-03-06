@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
         @employees = current_user.employees
     end
         
-    def show 
+    def show
     end
     
     def new
@@ -20,7 +20,7 @@ class EmployeesController < ApplicationController
         @employee = current_user.employees.build(employee_params)   
         respond_to do |format|
           if @employee.save
-            flash[:success] = "Employee was successfully created."
+            flash[:success] = 'Employee was successfully created.'
             format.html { redirect_to @employee } 
             format.json { render :show, status: :created, location: @employee }
           else

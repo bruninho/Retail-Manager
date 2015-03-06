@@ -1,8 +1,5 @@
 class Employee < ActiveRecord::Base
     belongs_to :user
-    has_many :timesheet_payments
-    has_many :timesheets, :through => :timesheet_payments
-    
     
     validates :pps_no, :fname, :lname, :dob, :address, 
               :ph_number, :basic_rop, :sunday_bh_rop, :email,
