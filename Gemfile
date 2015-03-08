@@ -36,5 +36,8 @@ end
 group :production do
 	gem 'pg',					'0.17.1'
 	gem 'rails_12factor',		'0.0.2'
-	gem 'unicorn',				'4.8.3'
+	# gem 'unicorn',				'4.8.3'
+	gem 'passenger'
 end
+
+# line of code removed from Procfile to test passenger -> web: bundle exec passenger start -p $PORT
