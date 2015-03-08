@@ -40,4 +40,4 @@ group :production do
 	gem 'passenger'
 end
 
-# line of code removed from Procfile to test passenger -> web: bundle exec passenger start -p $PORT
+# line of code removed from Procfile to test passenger -> web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
