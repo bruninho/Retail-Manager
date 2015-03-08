@@ -14,9 +14,3 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection
 end
 
-
-environment 'production'
-workers 1                            
-threads 8, 16
-daemonize true
-preload_app!
