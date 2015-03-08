@@ -16,7 +16,7 @@ common: &default_settings
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
   license_key: '5570e712d404f94af9e14f84a3ef8f5d64cdcbc1'
-
+  restart_thread_in_children: true
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
   # Default is 'auto' which means the agent will install and run only
@@ -214,6 +214,7 @@ test:
 production:
   <<: *default_settings
   monitor_mode: true
+  
 
 # Many applications have a staging environment which behaves
 # identically to production. Support for that environment is provided
