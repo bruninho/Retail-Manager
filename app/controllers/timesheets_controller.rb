@@ -13,9 +13,9 @@ class TimesheetsController < ApplicationController
   end
 
   def new
-    @employee = current_user.employees.first
+    @employee = Employee.all
     @timesheet = Timesheet.new
-    @timesheet.employee = @employee
+    @employee.each { @employee.timesheets.build }
   end
 
   def create

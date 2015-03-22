@@ -1,0 +1,16 @@
+<!-- create rows of 3 -->
+	<div class="main-container container">
+		<div class="row">
+
+			<div class="col-md-3 col-sm-4 " >
+				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+				<h2>Payroll</h2>
+				<p>Add a new employee to the system. Please ensure all details are correct before adding employee.</p>
+			</div>
+			<div class="col-md-8 col-sm-8 col-xs-12">
+				<h1>Edit employee</h1>
+				<%= render 'form' %>
+				<%= link_to 'Back', employees_path, class: "btn btn-default" %>
+			</div>
+		</div>
+	</div> <!-- close container -->

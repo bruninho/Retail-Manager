@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306230437) do
+ActiveRecord::Schema.define(version: 20150322063406) do
 
   create_table "employees", force: true do |t|
     t.string   "pps_no"
@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 20150306230437) do
     t.string   "email"
     t.date     "date_joined"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "employees", ["user_id"], name: "index_employees_on_user_id"

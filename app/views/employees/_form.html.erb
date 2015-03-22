@@ -13,7 +13,13 @@
   <% end %>
   <table class="table table-striped text-left">
     <tbody>
-        
+      <tr>
+        <div class="field">
+          <td><%= f.label "Add employee picture" %><br></td>
+          <td><%= f.file_field :photo %></td>
+        </div>
+      </tr>
+      
       <tr><div class="field">
         <td><%= f.label "First Name" %><br></td>
         <td><%= f.text_field :fname, :class => 'form-control' %><tr>
@@ -28,9 +34,7 @@
         <td><%= f.label "Date of Birth" %><br></td>
           <td><%= f.text_field :dob, 'data-provide' => 'datepicker', :class => 'form-control' %></td>
       </div></tr>
-        
-        
-        
+ 
       <tr><div class="field">
         <td><%= f.label "PPS Number", :class => 'control-label' %><br></td>
         <td><%= f.text_field :pps_no, :class => 'form-control' %><tr>
@@ -66,12 +70,10 @@
         <td><%= f.label "Starting Date", :class => 'control-label' %><br></td>
         <td><%= f.text_field :date_joined, 'data-provide' => 'datepicker', :class => 'form-control' %><tr>
       </div></tr>
-         
-         
-         
+  
     </tbody>
   </table>
   <div class="actions">
-    <%= f.submit "Create", class: "btn btn-success" %>
+    <p><%= f.submit "Submit", class: "submit_btn btn btn-success" %></p>
   </div>
 <% end %>

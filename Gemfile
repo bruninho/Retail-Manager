@@ -19,6 +19,7 @@ gem "twitter-bootstrap-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'newrelic_rpm'
 gem 'cocoon'
+gem "paperclip", 				"~> 4.2"
 
 group :development, :test do 
 	gem 'sqlite3',				'1.3.9'

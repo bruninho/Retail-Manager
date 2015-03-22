@@ -9,5 +9,14 @@ class Employee < ActiveRecord::Base
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 255 }, 
 			  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+    
+    #Add profile picture to employee using Paperclip
+	has_attached_file :photo, :styles => { :small => "150x150>" },
+	                  :url  => "/assets/employees/:id/:style/:basename.:extension",
+	                  :path => ":rails_root/public/assets/employees/:id/:style/:basename.:extension"
+
+	validates_attachment_presence     :photo
+	validates_attachment_size         :photo, :less_than    => 5.megabytes
+	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
 end
