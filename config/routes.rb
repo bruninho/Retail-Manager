@@ -15,11 +15,10 @@ Rails.application.routes.draw do
     get       'inbox'         =>  'messages#index'
     get       'employees'     =>  'employees#index'
     get       'employeelist'  =>  'employees#new'
-    get       'timesheets'    =>  'timesheets#index'
+
     resources :users
     resources :messages
     resources :employees
-    resource  :timesheets
     resources :account_activations, only: [:edit] 
     
   

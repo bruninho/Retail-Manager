@@ -31,15 +31,13 @@ class EmployeesController < ApplicationController
     end
     
     def update 
-        respond_to do |format|
-          if @employee.update(employee_params)
-            flash[:success] = 'Employee was successfully updated.'
-            format.html { redirect_to @employee } 
-            format.json { render :show, status: :ok, location: @employee }
-          else
-            format.html { render :edit }
-            format.json { render json: @employee.errors, status: :unprocessable_entity }
-          end
+        if @employee.update_attributes(employee_params) #updates user and returns true/false
+          # handle succesfull update
+          flash[:success] = "Employee updated"
+          redirect_to root_path
+        else
+          # display edit page again
+          render 'edit'
         end
     end
 

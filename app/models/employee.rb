@@ -1,7 +1,7 @@
 class Employee < ActiveRecord::Base
     belongs_to :user
-    has_many :timesheets
-    accepts_nested_attributes_for :timesheets
+    
+    before_save { self.email.downcase! }
     
     validates :pps_no, :fname, :lname, :dob, :address, 
               :ph_number, :basic_rop, :sunday_bh_rop, :email,
