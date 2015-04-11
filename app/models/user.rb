@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     has_many :sales
     has_many :messages
     has_many :employees
+    has_many :payrolls
 
     
     #data validation

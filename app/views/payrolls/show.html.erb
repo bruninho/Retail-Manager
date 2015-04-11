@@ -1,0 +1,39 @@
+<!-- create rows of 3 -->
+	<div class="main-container container">
+		<div class="row">
+
+			<div class="col-md-3 col-sm-4 " >
+				<a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+				<h2>Employee</h2>
+				<p>Please review & ensure all employee information is kept up-to-date.</p>
+			</div>
+			<div class="col-md-8 col-sm-8 col-xs-12">
+				<p id="notice"><%= notice %></p>
+			<table class="table table-striped text-left">
+		        <tbody>
+		            	<th>
+						  <td><strong>Submission Date:</strong></td>
+						  <td><%= @payroll.date %></td>
+						  <td> </td>
+						</th>
+						<tr>
+							<td><strong>Name</strong></td>
+							<td><strong>Basic Hours</strong></td>
+							<td><strong>Sunday Hours</strong></td>
+							<td><strong>Total Payment</strong></td>
+						</tr>
+						<tr>
+							<% for timesheet in @payroll.timesheets %>
+							<td><%= @employee.find(timesheet.employee_id).fname %> <%= @employee.find(timesheet.employee_id).lname%></td>
+							<td><%= timesheet.basic_hours %></td>
+							<td><%= timesheet.sunday_hours %></td>
+							<td>€<%= ((@employee.find(timesheet.employee_id).basic_rop * timesheet.basic_hours)+(@employee.find(timesheet.employee_id).sunday_bh_rop * timesheet.sunday_hours)) %></td>
+						</tr>
+						<% end %>
+						</tbody>
+		        </table>
+				<%= link_to 'Edit', edit_payroll_path(@payroll), class: "btn btn-primary"%> 
+				<%= link_to 'Back', payrolls_path, class: "btn btn-default"%>
+			</div>
+		</div>
+	</div> <!-- close container -->

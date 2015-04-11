@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404140601) do
+ActiveRecord::Schema.define(version: 20150411124335) do
 
   create_table "employees", force: true do |t|
     t.string   "pps_no"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20150404140601) do
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
+  create_table "payrolls", force: true do |t|
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "sales", force: true do |t|
     t.float    "total"
     t.float    "profit"
@@ -59,6 +66,34 @@ ActiveRecord::Schema.define(version: 20150404140601) do
   end
 
   add_index "sales", ["user_id"], name: "index_sales_on_user_id"
+
+  create_table "special_images", force: true do |t|
+    t.integer  "page_number"
+    t.integer  "special_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "specials", force: true do |t|
+    t.string   "title"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "timesheets", force: true do |t|
+    t.integer  "payroll_id"
+    t.integer  "employee_id"
+    t.float    "basic_hours"
+    t.float    "sunday_hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

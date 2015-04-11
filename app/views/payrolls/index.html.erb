@@ -1,0 +1,43 @@
+
+<!-- create rows of 3 -->
+  <div class="main-container container">
+    <div class="row">
+
+      <div class="col-md-3 col-sm-4 " >
+        <a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+        <h2>Upload your Sales information</h2>
+        <p>Update your daily sales information to the Financial Analyst.</p>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        
+<p id="notice"><%= notice %></p>
+
+<h1>Payroll</h1>
+<div class="table-responsive">
+<table class="table table-striped text-left center-table">
+  <thead>
+    <tr>
+      <th>Submission Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payrolls.each do |payroll| %>
+      <tr>
+        <td><%= payroll.date %></td>
+        <td><%= link_to 'Show', payroll, class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_payroll_path(payroll), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', payroll, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Payroll', new_payroll_path, class: "btn btn-success" %>
+
+</div>
+    </div>
+  </div> 

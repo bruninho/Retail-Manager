@@ -1,0 +1,24 @@
+<%= simple_form_for @payroll do |f|  %>
+  <% if @payroll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payroll.errors.count, "error") %> prohibited this payroll from being saved:</h2>
+
+      <ul>
+      <% @payroll.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :date %>
+  <%= f.simple_fields_for :timesheets do |timesheet| %>
+    <%= render 'timesheet_fields', :f => timesheet %>
+    <p>
+      <%= link_to_add_association 'Add employee', f, :timesheets, :class => 'btn btn-success btn-xs' %>
+    </p>
+  <% end %>
+  <div class="center form-actions">
+  <%= f.button :submit, :class => 'btn btn-primary btn-md submit_btn text-center'  %>
+  <%= link_to 'Back', payrolls_path , class: "btn btn-default" %>
+  </div>
+<% end %>

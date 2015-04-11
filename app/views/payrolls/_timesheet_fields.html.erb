@@ -1,0 +1,3 @@
+	<%= f.association :employee, :collection => current_user.employees.order(:id), :prompt => 'Choose an existing employee', :label_method => lambda { |employee| "#{employee.fname} #{employee.lname}" } %>
+	<%= f.input :basic_hours %>
+	<%= f.input :sunday_hours %>

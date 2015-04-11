@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :payrolls
+
     resources :sales
     root                          'sessions#new'
     get       'home'          =>  'static_pages#home'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
     get       'inbox'         =>  'messages#index'
     get       'employees'     =>  'employees#index'
     get       'employeelist'  =>  'employees#new'
+    get       'newpayroll'    =>  'payrolls#new'
 
     resources :users
     resources :messages
