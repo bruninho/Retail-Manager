@@ -2,8 +2,13 @@ class EmployeesController < ApplicationController
     before_action :logged_in_user
     before_action :set_employee, only: [:show, :edit, :update, :destroy]
     
-    def index 
+    def index
+      @users = User.all
+      if current_user.admin?
+        @employees = Employee.all
+      else
         @employees = current_user.employees
+      end
     end
         
     def show
@@ -33,7 +38,7 @@ class EmployeesController < ApplicationController
     def update 
         if @employee.update_attributes(employee_params) #updates user and returns true/false
           # handle succesfull update
-          flash[:success] = "Employee updated"
+          flash[:success] = "Employee updated."
           redirect_to root_path
         else
           # display edit page again

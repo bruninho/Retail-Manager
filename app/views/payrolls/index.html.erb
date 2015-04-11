@@ -17,6 +17,9 @@
 <table class="table table-striped text-left center-table">
   <thead>
     <tr>
+      <% if current_user.admin? %>
+        <th>Store</th>
+      <% end %>
       <th>Submission Date</th>
       <th colspan="3"></th>
     </tr>
@@ -25,6 +28,9 @@
   <tbody>
     <% @payrolls.each do |payroll| %>
       <tr>
+        <% if current_user.admin? %>
+          <td><%= @users.find(payroll.user_id).name %></td>
+        <% end %>
         <td><%= payroll.date %></td>
         <td><%= link_to 'Show', payroll, class: "btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_payroll_path(payroll), class: "btn btn-primary" %></td>
@@ -35,7 +41,7 @@
 </table>
 </div>
 <br>
-
+<p><%= will_paginate @payrolls, renderer: BootstrapPagination::Rails %></p>
 <%= link_to 'New Payroll', new_payroll_path, class: "btn btn-success" %>
 
 </div>

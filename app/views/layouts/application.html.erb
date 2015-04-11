@@ -103,9 +103,9 @@
         <!-- /.container -->
     </nav>
     <div class="container">
-            <% flash.each do |msg_type, msg| %>
-				<%= content_tag(:div, msg, class: "alert alert-#{msg_type}") %>
-            <% end %>
+        <p class="text-center"><% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %></p>
     	<%= yield %>
     </div>
 		<footer class="row">

@@ -44,6 +44,8 @@
             </table>
           </div>
         <br>
+        <p><%= will_paginate @sales, renderer: BootstrapPagination::Rails %></p>
+
         <%= link_to 'New Report', new_sale_path, class: "btn btn-success" %>
         <p><%= link_to '<i class="glyphicon glyphicon-save"></i> Download to Excel'.html_safe, sales_path(format: "xls"), class: "btn btn-xs btn-default" %></p>
 

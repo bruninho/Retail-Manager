@@ -4,7 +4,12 @@ class PayrollsController < ApplicationController
   # GET /payrolls
   # GET /payrolls.json
   def index
-    @payrolls = current_user.payrolls
+    @users = User.all
+    if current_user.admin?
+      @payrolls = Payroll.all.reorder("id DESC").paginate(page: params[:page], :per_page => 5)
+    else
+      @payrolls = current_user.payrolls.reorder("id DESC").paginate(page: params[:page], :per_page => 5)
+    end 
   end
 
   # GET /payrolls/1
@@ -27,10 +32,11 @@ class PayrollsController < ApplicationController
   # POST /payrolls.json
   def create
     @payroll = current_user.payrolls.build(payroll_params)
-
+      
     respond_to do |format|
       if @payroll.save
-        format.html { redirect_to @payroll, notice: 'Payroll was successfully created.' }
+        flash[:success] = "Report was successfully created."
+        format.html { redirect_to @payroll }
         format.json { render :show, status: :created, location: @payroll }
       else
         format.html { render :new }
@@ -44,7 +50,8 @@ class PayrollsController < ApplicationController
   def update
     respond_to do |format|
       if @payroll.update(payroll_params)
-        format.html { redirect_to @payroll, notice: 'Payroll was successfully updated.' }
+        flash[:success] = "Report was successfully updated."
+        format.html { redirect_to @payroll }
         format.json { render :show, status: :ok, location: @payroll }
       else
         format.html { render :edit }
@@ -58,7 +65,8 @@ class PayrollsController < ApplicationController
   def destroy
     @payroll.destroy
     respond_to do |format|
-      format.html { redirect_to payrolls_url, notice: 'Payroll was successfully destroyed.' }
+      flash[:success] = "Report was successfully deleted."
+      format.html { redirect_to payrolls_url }
       format.json { head :no_content }
     end
   end

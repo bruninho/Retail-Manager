@@ -8,10 +8,10 @@ class SalesController < ApplicationController
     @user = User.all
     #display all sales reports to admin user
     if current_user.admin?
-      @sales = Sale.all
+      @sales = Sale.all.paginate(page: params[:page], :per_page => 5)
     #display sales only for current user
     else     
-      @sales = current_user.sales
+      @sales = current_user.sales.paginate(page: params[:page], :per_page => 5)
     end 
     #download sales to xls
     respond_to do |format|
