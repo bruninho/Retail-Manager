@@ -1,6 +1,6 @@
 class SpecialsController < ApplicationController
   before_action :set_special, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user,     only: [:edit, :destroy ]
+  before_action :admin_user,     only: [:new, :edit, :destroy ]
 
   # GET /specials
   # GET /specials.json

@@ -40,8 +40,9 @@
         </table>
       </div>
       <br>
-
-      <%= link_to 'New Special', new_special_path, class: "btn btn-success" %>
+      <% if current_user.admin? %>
+        <%= link_to 'Upload', new_special_path, class: "btn btn-success" %>
+      <% end %>
     </div>
 </div>
 </div>
