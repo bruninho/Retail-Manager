@@ -31,6 +31,9 @@
                     <li>
                         <%= link_to "Sales", sales_path %>
                     </li>
+                    <li>
+                        <%= link_to "KPI", report_path %>
+                    </li>
                     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Payroll <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -60,6 +63,19 @@
                                 </li>
                             </ul>
                         </li>
+                        <% if current_user.admin? %>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbill <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <%= link_to "View", specials_path %>
+                                    </li>
+                                    <li>
+                                        <%= link_to "Upload", newhandbill_path %>
+                                    </li>
+                                </ul>
+                            </li>
+                        <% end %>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">

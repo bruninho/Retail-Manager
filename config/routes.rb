@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :specials
+
   resources :payrolls
 
     resources :sales
     root                          'sessions#new'
     get       'home'          =>  'static_pages#home'
-    get       'offer'         =>  'static_pages#offer'
     get       'report'        =>  'static_pages#report'
     get       'signup'        =>  'users#new'
     get       'login'         =>  'sessions#new'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     get       'employees'     =>  'employees#index'
     get       'employeelist'  =>  'employees#new'
     get       'newpayroll'    =>  'payrolls#new'
+    get       'newhandbill'   =>  'specials#new'
 
     resources :users
     resources :messages

@@ -1,0 +1,28 @@
+<%= simple_form_for @special do |f|  %>
+  <% if @special.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+         <%= pluralize(@special.errors.count, "error") %> prohibited this special report from being saved:
+      </div>
+      <ul>
+      <% @special.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :title %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+
+  <%= f.simple_fields_for :pages do |page| %>
+    <%= render 'page_fields', :f => page %>
+    <p>
+      <%= link_to_add_association 'Add page image', f, :pages, :class => 'btn btn-success btn-xs' %>
+    </p>
+  <% end %>
+  <div class="center form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary btn-md submit_btn text-center' %>
+    <%= link_to 'Back', specials_path , class: "btn btn-default" %>
+  </div>
+<% end %>

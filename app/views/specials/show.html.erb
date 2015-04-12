@@ -1,0 +1,26 @@
+<!-- create rows of 3 -->
+<div class="main-container container">
+	<div class="row">
+		<div class="col-lg-12 col-md-8 col-sm-8 col-xs-12">
+			<p id="notice"><%= notice %></p>
+			<h2><%= @special.title %></h2>
+			<p>
+			  <strong>Start date:</strong>
+			  <%= @special.start_date %>
+
+			  <strong>End date:</strong>
+			  <%= @special.end_date %>
+			</p>
+
+			<% for page in @special.pages %>
+				<%= image_tag page.image.url(:large), :class => "dropshadowclass page_image img-responsive" %>
+			<% end %>
+
+			<% if current_user.admin? %>
+				<%= link_to 'Edit', edit_special_path(@special), class: "btn btn-primary" %>
+			<% end %>
+			<%= link_to 'Back', specials_path, class: "btn btn-default" %>
+
+		</div>
+	</div>
+</div> 

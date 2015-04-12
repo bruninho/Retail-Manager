@@ -1,0 +1,47 @@
+<!-- create rows of 3 -->
+  <div class="main-container container">
+    <div class="row">
+
+      <div class="col-md-3 col-sm-4 " >
+        <a href="#"><%= image_tag("cash.png", class: "img-main", alt: "cash report") %></a>
+        <h2>Upload your Sales information</h2>
+        <p>Update your daily sales information to the Financial Analyst.</p>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              
+      <p id="notice"><%= notice %></p>
+
+      <h1>Special Offer - Handbill</h1>
+      <div class="table-responsive">
+        <table class="table table-striped text-left center-table">
+          <thead>
+            <tr>
+              <th>Handbill</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @specials.each do |special| %>
+              <tr>
+                <td><%= special.title %></td>
+                <td><%= special.start_date %></td>
+                <td><%= special.end_date %></td>
+                <td><%= link_to 'Show', special , class: "btn btn-default"%></td>
+                <% if current_user.admin? %>
+                  <td><%= link_to 'Edit', edit_special_path(special) , class: "btn btn-primary" %></td>
+                  <td><%= link_to 'Destroy', special, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>
+
+      <%= link_to 'New Special', new_special_path, class: "btn btn-success" %>
+    </div>
+</div>
+</div>
