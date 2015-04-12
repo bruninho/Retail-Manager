@@ -17,3 +17,8 @@
 //= require_tree .
 //= require bootstrap-datepicker
 //= require cocoon
+//= require jquery.turbolinks
+
+$(function() {
+    $('input.datepicker').data({behaviour: "datepicker"}).datepicker();
+});

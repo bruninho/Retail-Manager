@@ -21,6 +21,8 @@ gem 'newrelic_rpm'
 gem 'cocoon'
 gem 'simple_form'
 gem "paperclip", 				"~> 4.2"
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do 
 	gem 'sqlite3',				'1.3.9'

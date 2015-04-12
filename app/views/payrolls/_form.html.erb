@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :date %>
+  <%= f.input :date, as: :string, input_html: { class: "datepicker" }  %>
   <%= f.simple_fields_for :timesheets do |timesheet| %>
     <%= render 'timesheet_fields', :f => timesheet %>
     <p>
