@@ -79,7 +79,6 @@ class SpecialsController < ApplicationController
     end
 
     def admin_user 
-        flash[:danger] = "Section stricted to administrators."
         redirect_to(home_path) unless current_user.admin?
     end
 end
